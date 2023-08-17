@@ -1,15 +1,16 @@
 import Sidebar from "./components/Sidebar";
 import Rightbar from "./components/Rightbar";
 import Feed from "./components/Feed";
-import { Box, Stack, ThemeProvider } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+
 import Navbar from "./components/Navbar";
-import { theme } from "./theme";
+import { ThemeContext } from "./theme/ThemeContext";
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Box>
+      <ThemeContext>
+        <Box bgcolor="background.default" color="text.primary">
           <Navbar></Navbar>
           <Stack direction="row" spacing={2} justifyContent="space-between">
             <Sidebar></Sidebar>
@@ -17,7 +18,7 @@ function App() {
             <Rightbar></Rightbar>
           </Stack>
         </Box>
-      </ThemeProvider>
+      </ThemeContext>
     </>
   );
 }
